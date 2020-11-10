@@ -3,6 +3,7 @@
 * Note: 1D Array
 *
 */
+
 function getSubArrays(arr) {
     const subArrays = [];
     for (var i = 0; i < arr.length; i++) {
