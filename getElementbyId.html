@@ -1,0 +1,38 @@
+<html>
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <title>getElementbyId - Implementation</title>    
+      <meta name="robots" content="noindex, nofollow">
+      <meta name="googlebot" content="noindex, nofollow">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+   </head>
+   <body>
+      <div id="container">
+         <div id="sidebar">
+            <p>Test</p>
+            <p></p>
+         </div>
+         <div id="main">
+            <input type="text" id="name" value="2">
+         </div>
+      </div>
+      <script type="text/javascript">
+         function getElementbyId(id){
+         	let result = null;
+         	function findNode(node){
+         		if(node.id === id){
+         			result =  node;
+         		}
+         		for(let i=0;i<node.childNodes.length;i++){
+         			findNode(node.childNodes[i]);
+         		}
+         	}
+         	findNode(document.body);
+         	return result;
+         }
+         console.log(getElementbyId('name').value);
+         console.log(getElementbyId('main').innerHTML);
+         getElementbyId('sidebar').innerHTML = "<p>Test<p/>";
+      </script>
+   </body>
+</html>
